@@ -1,5 +1,5 @@
 <template>
-  <div id="mapContainer"></div>
+  <div class="h-full w-full" id="mapContainer"></div>
 </template>
 
 <script>
@@ -13,9 +13,9 @@ export default {
     let container = null;
 
     onMounted(() => {
-      container = map("mapContainer").setView([51.959, -8.623], 6);
+      container = map("mapContainer").setView([38.9072, -77.0369], 12);
 
-      basemapLayer("Streets").addTo(container);
+      basemapLayer("Topographic").addTo(container);
     });
 
     onBeforeUnmount(() => {
@@ -24,10 +24,3 @@ export default {
   }
 };
 </script>
-
-<style scoped>
-#mapContainer {
-  width: 40vw;
-  height: 40vh;
-}
-</style>
