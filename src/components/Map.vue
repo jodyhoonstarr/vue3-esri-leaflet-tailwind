@@ -3,7 +3,8 @@
 </template>
 
 <script>
-import { map, tileLayer } from "leaflet";
+import { map } from "leaflet";
+import { basemapLayer } from "esri-leaflet";
 import { onMounted, onBeforeUnmount } from "vue";
 
 export default {
@@ -12,12 +13,9 @@ export default {
     let container = null;
 
     onMounted(() => {
-      container = map("mapContainer").setView([51.959, -8.623], 12);
+      container = map("mapContainer").setView([51.959, -8.623], 6);
 
-      tileLayer("http://{s}.tile.osm.org/{z}/{x}/{y}.png", {
-        attribution:
-          '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-      }).addTo(container);
+      basemapLayer("Streets").addTo(container);
     });
 
     onBeforeUnmount(() => {
